@@ -3,7 +3,7 @@
 # Checking input parameters
 if [ $# -lt 2 ]; then
         echo "Error! You must input the log folder and the full path update script as parameters."
-        echo "EXAMPLE: $0 /var/log/migrate-update-so /opt/migrate-update-so/update.sh"
+        echo "EXAMPLE: $0 /var/log/auto-update-so /opt/auto-update-so/update.sh"
         exit 1
 fi
 

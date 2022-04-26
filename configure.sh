@@ -1,7 +1,7 @@
 #!/bin/bash
 
-INSTALLATION_FOLDER="/opt/migrate-update-so"
-LOG_FOLDER="/var/log/migrate-update-so"
+INSTALLATION_FOLDER="/opt/auto-update-so"
+LOG_FOLDER="/var/log/auto-update-so"
 MAIN_SCRIPT_FILENAME="run.sh"
 AUX_SCRIPT_FILENAME="update.sh"
 
