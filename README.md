@@ -4,6 +4,7 @@
 #### Configuração: #####
 ```shell
 cd auto-update-so-linux
+sudo chmod 744 configure.sh
 sudo ./configure.sh
 ```
 
