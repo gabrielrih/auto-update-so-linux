@@ -28,7 +28,7 @@ fi
 cp ./pkg/* $INSTALLATION_FOLDER
 
 # Allowing executing
-chmod -R 744 $INSTALLATION_FOLDER
+chmod -R 755 $INSTALLATION_FOLDER
 
 # Configuring crontab (Weekly, monday 7:30 am)
 # References:
@@ -38,10 +38,10 @@ crontab -l > .crontab_temp
 numLines=$(cat .crontab_temp | grep $INSTALLATION_FOLDER | wc -l)
 if [ $numLines -eq 0 ]
 then
-        echo -e "${GREEN}30 7 * * 1 $MAIN_SCRIPT_FULLPATH $LOG_FOLDER $UPDATE_SCRIPT_FULLPATH${NOCOLOR}" >> .crontab_temp
+        echo -e "30 7 * * 1 $MAIN_SCRIPT_FULLPATH $LOG_FOLDER $UPDATE_SCRIPT_FULLPATH" >> .crontab_temp
         crontab .crontab_temp
 fi
-rm .crontab_temp
+#rm .crontab_temp
 
 # Finishing
 echo -e "\n${GREEN}It's done!${NOCOLOR}\n"
