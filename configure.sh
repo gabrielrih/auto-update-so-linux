@@ -1,4 +1,11 @@
 #!/bin/bash
+
+# Color variables 
+RED="\033[1;31m"
+GREEN="\033[1;32m"
+NOCOLOR="\033[0m"
+
+# Variables
 INSTALLATION_FOLDER="/opt/auto-update-so"
 LOG_FOLDER="/var/log/auto-update-so"
 MAIN_SCRIPT_FILENAME="run.sh"
@@ -7,8 +14,8 @@ MAIN_SCRIPT_FULLPATH=$INSTALLATION_FOLDER"/"$MAIN_SCRIPT_FILENAME
 UPDATE_SCRIPT_FULLPATH=$INSTALLATION_FOLDER"/"$AUX_SCRIPT_FILENAME
 
 # Is it root?
-if [ $(whoami) != root ]; then
-        echo "Error! Run it as root!"
+if [ $(whoami) != root ]; then                                                  # Or like this: if [ $(id -u) != "0" ]; then
+        echo -e "${RED}Error!${NOCOLOR} ${GREEN}Run it as root!${NOCOLOR}"
         exit 1
 fi
 
@@ -31,11 +38,11 @@ crontab -l > .crontab_temp
 numLines=$(cat .crontab_temp | grep $INSTALLATION_FOLDER | wc -l)
 if [ $numLines -eq 0 ]
 then
-        echo "30 7 * * 1 $MAIN_SCRIPT_FULLPATH $LOG_FOLDER $UPDATE_SCRIPT_FULLPATH" >> .crontab_temp
+        echo -e "${GREEN}30 7 * * 1 $MAIN_SCRIPT_FULLPATH $LOG_FOLDER $UPDATE_SCRIPT_FULLPATH${NOCOLOR}" >> .crontab_temp
         crontab .crontab_temp
 fi
 rm .crontab_temp
 
 # Finishing
-echo "It's done!"
+echo -e "\n${GREEN}It's done!${NOCOLOR}\n"
 exit 0

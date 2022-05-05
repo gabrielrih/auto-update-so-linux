@@ -1,9 +1,18 @@
 #!/bin/bash
 
+# Control of logs
+#
+
+# Color variables 
+RED="\033[1;31m"
+GREEN="\033[1;32m"
+NOCOLOR="\033[0m"
+
+
 # Checking input parameters
 if [ $# -lt 2 ]; then
-        echo "Error! You must input the log folder and the full path update script as parameters."
-        echo "EXAMPLE: $0 /var/log/auto-update-so /opt/auto-update-so/update.sh"
+        echo -e "${RED}Error!${NOCOLOR} ${GREEN}You must input the log folder and the full path update script as parameters.${NOCOLOR}"
+        echo -e "${GREEN}EXAMPLE:${NOCOLOR} $0 /var/log/auto-update-so /opt/auto-update-so/update.sh"
         exit 1
 fi
 
