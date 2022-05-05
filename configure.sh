@@ -25,10 +25,10 @@ if [ ! -d  "$INSTALLATION_FOLDER" ]; then
 fi
 
 # Copying scripts
-cp pkg/*.* $INSTALLATION_FOLDER
+cp ./pkg/* $INSTALLATION_FOLDER
 
-# Changing permition to allow executing
-chmod -R 755 $INSTALLATION_FOLDER
+# Allowing executing
+chmod -R 744 $INSTALLATION_FOLDER
 
 # Configuring crontab (Weekly, monday 7:30 am)
 # References:
