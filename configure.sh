@@ -41,7 +41,7 @@ then
         echo -e "30 7 * * 1 $MAIN_SCRIPT_FULLPATH $LOG_FOLDER $UPDATE_SCRIPT_FULLPATH" >> .crontab_temp
         crontab .crontab_temp
 fi
-#rm .crontab_temp
+rm .crontab_temp
 
 # Finishing
 echo -e "\n${GREEN}It's done!${NOCOLOR}\n"
